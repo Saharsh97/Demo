@@ -26,4 +26,14 @@ public class HelloController {
     public String updateUserDetails(@PathVariable("id") String userId){
         return "user " + userId + " updated";
     }
+
+    @GetMapping("/query")
+    public String runQuery(@RequestParam("text") String searchWord,
+                           @RequestParam(value = "limit", defaultValue = "10") Integer queryLimit,
+                           @RequestParam(value = "offset", required = false, defaultValue = "0") String queryOffset){
+        return searchWord + " | " + queryLimit + " | " + queryOffset;
+    }
+
+
+
 }
